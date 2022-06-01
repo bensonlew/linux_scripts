@@ -1,0 +1,31 @@
+#!/bin/bash
+FILE=${1}
+FILETO=$FILE
+if [ ! -e "$FILE" ]; then
+        echo $FILE" not exists"
+        exit
+fi
+if [ -d "$FILE" ]; then
+        echo $FILE" is dir input ids file"
+        exit
+fi
+FILETO=`readlink -f $FILETO`
+FILETO=`echo $FILETO|sed 's/.*#!/bin/bash
+FILE=${1}
+FILETO=$FILE
+if [ ! -e "$FILE" ]; then
+        echo $FILE" not exists"
+        exit
+fi
+if [ -d "$FILE" ]; then
+        echo $FILE" is dir input ids file"
+        exit
+fi
+FILETO=`readlink -f $FILETO`
+FILETO=`echo $FILETO|sed 's/ilustre/lustre/;s/sanger-dev/sanger/;s/biocluster/sanger_bioinfo/'`
+echo $FILETO
+
+ssh -i $HOME/sg-users/liubinxu/script/.key/nb_id_rsa sanger@10.2.0.110 "cat "$FILETO |diff -b - $FILE/sanger_bioinfo/'`
+echo $FILETO
+
+ssh -i $HOME/work/key/nb_id_rsa sanger@10.2.0.110 "cat "$FILETO |diff -b - $FILE

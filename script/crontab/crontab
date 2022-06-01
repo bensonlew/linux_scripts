@@ -1,0 +1,2 @@
+0 9-19 * * 1-5 /home/liubinxu/work/script/crontab/rest.sh
+40 14 * * 1-5 /home/liubinxu/work/script/crontab/stock.sh
